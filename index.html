@@ -5,6 +5,26 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Home | Trade Hub</title>
   <style>
+.animated-gradient {
+    background: linear-gradient(90deg, #ff7e5f, #feb47b, #ff7e5f, #feb47b);
+    background-size: 300% 300%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: gradientAnimation 4s ease-in-out infinite;
+}
+
+@keyframes gradientAnimation {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
     /* General Styles */
     body {
       margin: 0;
@@ -127,13 +147,26 @@
     <a href="#">Download App</a>
   </div>
 
-  <!-- Main Content -->
-  <div class="main-content" id="mainContent">
-    <h1>Welcome to the Website</h1>
-    <p>This is the main content area.</p>
-  </div>
 
-  <!-- Bottom Links -->
+
+
+
+
+  <!-- Main Content -->
+
+  <div class="main-content" id="mainContent">
+    <h1>Welcome to <span class="animated-gradient">TradeHUB</span></h1>
+    <p>This is the main content area.</p>
+</div>
+  
+
+
+
+
+
+
+
+<!-- Bottom Links -->
   <div class="bottom-links">
     <a href="#">Privacy Policy</a>
     <a href="#">Terms of Service</a>
@@ -142,7 +175,7 @@
 
   <!-- Copyright Section -->
   <div class="copyright">
-    &copy; 2025 Your Company. Made with ❤️.
+    &copy; 2025 TradeHUB by StudioAs Inc.
   </div>
 
   <script>

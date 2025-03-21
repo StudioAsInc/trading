@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fee Calculator</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f9;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .calculator {
+      background: white;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      width: 350px;
+    }
+
+    h1 {
+      font-size: 24px;
+      color: #333;
+      margin-bottom: 20px;
+    }
+
+    input[type="number"] {
+      width: 100%;
+      padding: 12px;
+      margin: 10px 0;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 16px;
+      box-sizing: border-box;
+    }
+
+    .toggle-switch {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 10px 0;
+    }
+
+    .toggle-switch label {
+      margin: 0 10px;
+      font-size: 16px;
+      color: #333;
+    }
+
+    .toggle-switch input[type="checkbox"] {
+      appearance: none;
+      width: 40px;
+      height: 20px;
+      background-color: #ccc;
+      border-radius: 20px;
+      position: relative;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .toggle-switch input[type="checkbox"]:checked {
+      background-color: royalblue;
+    }
+
+    .toggle-switch input[type="checkbox"]::before {
+      content: '';
+      position: absolute;
+      width: 16px;
+      height: 16px;
+      background-color: white;
+      border-radius: 50%;
+      top: 2px;
+      left: 2px;
+      transition: transform 0.3s ease;
+    }
+
+    .toggle-switch input[type="checkbox"]:checked::before {
+      transform: translateX(20px);
+    }
+
+    .calculate-btn {
+      background-color: royalblue;
+      color: white;
+      border: none;
+      padding: 15px 30px;
+      border-radius: 25px;
+      font-size: 18px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      width: 100%;
+      margin-top: 20px;
+    }
+
+    .calculate-btn.reset {
+      background-color: #ff4d4d;
+    }
+
+    .result {
+      margin-top: 20px;
+      font-size: 18px;
+      color: #333;
+      padding: 10px;
+      background-color: #f9f9f9;
+      border-radius: 5px;
+      border: 1px solid #ddd;
+      display: none;
+    }
+
+    .result.visible {
+      display: block;
+    }
+  </style>
+</head>
+<body>
+  <div class="calculator">
+    <h1>Fee Calculator</h1>
+    <input type="number" id="coinPrice" placeholder="Coin Price (USDT)" step="0.01">
+    <div class="toggle-switch">
+      <label for="toggleInput">Coin Quantity</label>
+      <input type="checkbox" id="toggleInput" onchange="toggleInputMode()">
+      <label for="toggleInput">USD Value</label>
+    </div>
+    <input type="number" id="coinQuantity" placeholder="Coin Quantity" step="0.01">
+    <input type="number" id="feePercent" placeholder="Fee (%)" step="0.01">
+    <div class="result" id="result"></div>
+    <button class="calculate-btn" id="actionBtn" onclick="calculateFee()">Calculate</button>
+  </div>
+
+  <script>
+    let isUSDInputMode = false;
+
+    function toggleInputMode() {
+      isUSDInputMode = !isUSDInputMode;
+      const coinQuantityInput = document.getElementById('coinQuantity');
+      coinQuantityInput.placeholder = isUSDInputMode ? 'USD Value' : 'Coin Quantity';
+    }
+
+    function calculateFee() {
+      const actionBtn = document.getElementById('actionBtn');
+      const resultDiv = document.getElementById('result');
+
+      // Check if the button is in "reset" mode
+      if (actionBtn.classList.contains('reset')) {
+        // Reset all inputs and the result
+        document.getElementById('coinPrice').value = '';
+        document.getElementById('coinQuantity').value = '';
+        document.getElementById('feePercent').value = '';
+        resultDiv.innerText = '';
+        resultDiv.classList.remove('visible');
+        actionBtn.innerText = 'Calculate';
+        actionBtn.classList.remove('reset');
+        return;
+      }
+
+      // Get input values
+      const coinPrice = parseFloat(document.getElementById('coinPrice').value);
+      const coinQuantity = parseFloat(document.getElementById('coinQuantity').value);
+      const feePercent = parseFloat(document.getElementById('feePercent').value);
+
+      // Validate inputs
+      if (isNaN(coinPrice) || isNaN(coinQuantity) || isNaN(feePercent)) {
+        resultDiv.innerText = "Please enter valid numbers.";
+        resultDiv.classList.add('visible');
+        return;
+      }
+
+      // Calculate fee in coin or USD
+      let feeInCoin, feeInUSDT;
+      if (isUSDInputMode) {
+        // If USD input mode, convert USD to coin quantity first
+        const coinQuantityFromUSD = coinQuantity / coinPrice;
+        feeInCoin = (coinQuantityFromUSD * feePercent) / 100;
+        feeInUSDT = feeInCoin * coinPrice;
+      } else {
+        // If Coin Quantity input mode
+        feeInCoin = (coinQuantity * feePercent) / 100;
+        feeInUSDT = feeInCoin * coinPrice;
+      }
+
+      // Display result with more precision
+      resultDiv.innerText = `Fee: ${feeInCoin.toFixed(6)} Coin (${feeInUSDT.toFixed(6)} USDT)`;
+      resultDiv.classList.add('visible');
+
+      // Change button to "Reset"
+      actionBtn.innerText = 'Reset';
+      actionBtn.classList.add('reset');
+    }
+  </script>
+</body>
+</html>

@@ -99,7 +99,7 @@
   !function(n){"use strict";n.loadCSS||(n.loadCSS=function(){});var o=loadCSS.relpreload={};if(o.support=function(){var e;try{e=n.document.createElement("link").relList.supports("preload")}catch(t){e=!1}return function(){return e}}(),o.bindMediaToggle=function(t){var e=t.media||"all";function a(){t.addEventListener?t.removeEventListener("load",a):t.attachEvent&&t.detachEvent("onload",a),t.setAttribute("onload",null),t.media=e}t.addEventListener?t.addEventListener("load",a):t.attachEvent&&t.attachEvent("onload",a),setTimeout(function(){t.rel="stylesheet",t.media="only x"}),setTimeout(a,3e3)},o.poly=function(){if(!o.support())for(var t=n.document.getElementsByTagName("link"),e=0;e<t.length;e++){var a=t[e];"preload"!==a.rel||"style"!==a.getAttribute("as")||a.getAttribute("data-loadcss")||(a.setAttribute("data-loadcss",!0),o.bindMediaToggle(a))}},!o.support()){o.poly();var t=n.setInterval(o.poly,500);n.addEventListener?n.addEventListener("load",function(){o.poly(),n.clearInterval(t)}):n.attachEvent&&n.attachEvent("onload",function(){o.poly(),n.clearInterval(t)})}"undefined"!=typeof exports?exports.loadCSS=loadCSS:n.loadCSS=loadCSS}("undefined"!=typeof global?global:this);
 </script>
  </head> 
- <body data-comp="EnvironmentDetect" data-channel="stable" data-locale="en_us" data-region="en_US" class="fallback-home android" data-ga-type="ga"> 
+ <body data-comp="EnvironmentDetect" data-channel="stable" data-locale="en_us" data-region="en_US" class="fallback-home android is-showing-drawer is-showing-backdrop" data-ga-type="ga"> 
   <div id="js-cookie-banner" class="chr-cookie-banner show" data-comp="CookieBanner" data-ga-config="{&quot;elementIsVisible&quot;: {&quot;event&quot;: &quot;module_impression&quot;, &quot;module_name&quot;: &quot;cookie banner&quot;, &quot;section_header&quot;: true}}"> 
    <div class=" chr-cookie-banner__inner"> 
     <p class=" chr-cookie-banner__message chr-copy chr-copy--small"> Google uses cookies to deliver its services, to personalize ads, and to analyze traffic. You can adjust your privacy controls anytime in your <a href="https://support.google.com/accounts/answer/3118621?hl=en" target="_blank" rel="noopener" ga-event-category="chrome-cookie-link" ga-event-action="clicked" ga-event-label="cookie:google-settings"> Google settings</a> or <a href="https://policies.google.com/technologies/cookies?hl=en" target="_blank" rel="noopener" ga-event-category="chrome-cookie-link" ga-event-action="clicked" ga-event-label="cookie:learn-more">read our cookie policy</a>.</p> 
@@ -108,8 +108,8 @@
     </div> 
    </div> 
   </div>
-  <div class=" chr-header-v3 cta--hidden" id="js-header" data-comp="Header" role="banner" data-ga-config="{&quot;elementIsVisible&quot;: {&quot;event&quot;: &quot;module_impression&quot;, &quot;module_name&quot;: &quot;navbar&quot;, &quot;section_header&quot;: true}}"> 
-   <div class=" chr-header-v3__wrapper"> 
+  <div class="chr-header-v3" id="js-header" data-comp="Header" role="banner" data-ga-config="{&quot;elementIsVisible&quot;: {&quot;event&quot;: &quot;module_impression&quot;, &quot;module_name&quot;: &quot;navbar&quot;, &quot;section_header&quot;: true}}"> 
+   <div class=" chr-header-v3__wrapper" aria-hidden="true"> 
     <div class=" chr-header-v3__hamburger"> 
      <div class=" chr-header-v3__hamburger-wrapper" id="js-hamburger-button"> 
       <button type="button" class=" chr-header-v3__hamburger-button" aria-controls="js-header__drawer" aria-expanded="false" tabindex="0" role="button" aria-label="Open the navigation drawer"> 
@@ -163,7 +163,7 @@
    <div class="cta-container "> 
     <button type="button" class="chr-cta__button chr-cta__button--blue js-download show" id="js-download-header" ga-on="click" ga-event-category="cta" ga-event-action="clicked" ga-event-label="download|nav" data-g-event="cta" data-g-action="clicked" data-g-label="download|nav" role="button" data-ga-config="{&quot;click&quot;: {&quot;event&quot;: &quot;download_chrome_cta_click&quot;, &quot;link_url&quot;: true, &quot;link_text&quot;: true, &quot;link_type&quot;: true, &quot;module_name&quot;: true, &quot;section_header&quot;: false}}">Download Chrome </button>
    </div> 
-   <div id="js-header__drawer" class=" chr-header-v3__drawer"> 
+   <div id="js-header__drawer" class="chr-header-v3__drawer drawer--visible" aria-hidden="false"> 
     <div class=" chr-header-v3__drawer-close"> 
      <button type="button" class="chr-btn-close-drawer" aria-controls="js-header__drawer" aria-label="close the navigation drawer" tabindex="0" role="button"> 
       <svg class=" chr-header-v3__drawer-close-icon"> 
@@ -213,7 +213,7 @@
    <div id="js-drawer-backdrop" class=" chr-header-v3__drawer-backdrop"> 
    </div> 
   </div>
-  <div role="main" class="chr-main " id="jump-content" data-comp="AnimationObserver"> 
+  <div role="main" class="chr-main " id="jump-content" data-comp="AnimationObserver" aria-hidden="true"> 
    <section id="hero" class="chr-section js-section " data-ga-config="{&quot;elementIsVisible&quot;: {&quot;event&quot;: &quot;module_impression&quot;, &quot;module_name&quot;: &quot;hero&quot;, &quot;section_header&quot;: true}}"> 
     <div class="chr-homepage-hero" id="chr-hero"> 
      <!-- data-comp="ParallaxScroll" // Add to bind to Parallax --> 
@@ -548,7 +548,7 @@
     </div>
    </section> 
   </div> 
-  <footer id="js-footer" class="chr-footer is-cookie-banner-opened" data-comp="Footer"> 
+  <footer id="js-footer" class="chr-footer is-cookie-banner-opened" data-comp="Footer" aria-hidden="true"> 
    <div class=" chr-footer__bottom"> 
     <div class=" chr-footer__logo"> 
      <a href="https://www.google.com" title="Google" target="_blank" rel="noopener" ga-event-category="footer" ga-event-action="logo-click" ga-event-label="https://www.google.com" data-g-event="" data-g-action="logo-click" data-g-label="https://www.google.com"> 

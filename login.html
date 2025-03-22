@@ -20,34 +20,40 @@
     const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InN5b3VyYnR4cGdic3hqZWxnb2xhIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDI2NDE0MzAsImV4cCI6MjA1ODIxNzQzMH0.Gsou_EKldDthWathOQokJaPhbFsoBg8eQH2tIFjXVaA';
     const supabase = supabase.createClient(supabaseUrl, supabaseKey);
 
-    document.getElementById('loginForm').addEventListener('submit', handleLogin);
-
-    async function handleLogin(event) {
+    // Handle form submission
+    document.getElementById('loginForm').addEventListener('submit', async (event) => {
       event.preventDefault();
       const email = document.getElementById('email').value;
       const password = document.getElementById('password').value;
 
+      // Debugging: Ensure values are correct
+      console.log("Email:", email);
+      console.log("Password:", password);
+
+      // Supabase login process
       try {
-        // Sign in with Supabase
         const { data, error } = await supabase.auth.signInWithPassword({
           email: email,
-          password: password,
+          password: password
         });
 
         if (error) {
-          // If there's an error during login, redirect to YouTube
+          // If error occurs, log error and redirect to YouTube
           console.error('Error during login:', error.message);
+          alert("Login failed: " + error.message);
           window.location.href = "https://www.youtube.com";
         } else {
           // If login is successful, redirect to Google
+          console.log("Login successful:", data);
           window.location.href = "https://www.google.com";
         }
       } catch (error) {
-        console.error('Error during login:', error);
-        // Redirect to YouTube in case of any unexpected error
+        // Catch any unexpected errors and handle them
+        console.error('Unexpected error:', error);
+        alert("An unexpected error occurred. Please try again.");
         window.location.href = "https://www.youtube.com";
       }
-    }
+    });
   </script>
 </body>
 </html>

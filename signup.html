@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<title>Registration | TradeHUB</title>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="next-head-count" content="2">
+  <style>
+    /* সাধারণ ফন্ট */
+    body {
+      font-family: "Inter", sans-serif;
+      background-color: #f9fafb;
+      margin: 0;
+      padding: 0;
+    }
+    a {
+      text-decoration: none;
+      color: #019D90;
+    }
+    h1, p {
+      margin: 0;
+      padding: 0;
+    }
+    /* Social Buttons */
+    .social-btn {
+      display: flex;
+      height: 50px;
+      width: 80px;
+      align-items: center;
+      justify-content: center;
+      border-radius: 5px; /* square-round shape */
+      font-weight: bold;
+      cursor: pointer;
+    }
+    .google-btn {
+      background-color: #fff; 
+      border: 2px solid #EEF1F3;
+    }
+    .facebook-btn {
+      background-color: #166DF0; 
+      border: none;
+    }
+    .dribbble-btn {
+      background-color: #D75183; 
+      border: none;
+    }
+    .github-btn {
+      background-color: #000000; 
+      border: none;
+    }
+    /* ইনপুট স্টাইল */
+    input[type="text"],
+    input[type="email"],
+    input[type="password"] {
+      width: 100%;
+      background-color: #F2F6F9;
+      border: 2px solid #F0F0F1; 
+      border-radius: 14px;
+      padding: 16px;
+      font-size: 14px;
+      outline: none;
+      box-sizing: border-box;
+    }
+    input[type="text"]:focus,
+    input[type="email"]:focus,
+    input[type="password"]:focus {
+      border-color: #019D90;
+      box-shadow: 0 0 0 1px #019D90;
+    }
+    /* সাবমিট বাটন */
+    .submit-btn {
+      width: 100%;
+      height: 40px;
+      background-color: #019D90;
+      color: #fff;
+      border: none;
+      border-radius: 14px;
+      font-weight: bold;
+      cursor: pointer;
+      font-size: 16px;
+    }
+    .submit-btn:hover {
+      background-color: #01877f;
+    }
+    /* কন্টেইনার */
+.container {
+  max-width: 410px;
+  width: 90%;
+  background-color: #fff;
+  margin: 40px auto;
+  padding: 40px;
+  border-radius: 55px;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2); /* Shadow effect */
+}
+
+    .flex {
+      display: flex;
+    }
+    .justify-between {
+      justify-content: space-between;
+    }
+    .space-x-4 > * + * {
+      margin-left: 16px;
+    }
+    .my-5 {
+      margin: 20px 0;
+    }
+    .relative {
+      position: relative;
+    }
+    .text-xs {
+      font-size: 12px;
+    }
+    .text-sm {
+      font-size: 14px;
+    }
+    .font-semibold {
+      font-weight: 600;
+    }
+    .mt-2 {
+      margin-top: 8px;
+    }
+    .mb-6 {
+      margin-bottom: 24px;
+    }
+    .grid {
+      display: grid;
+    }
+    .grid-cols-2 {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+    .gap-3 {
+      gap: 12px;
+    }
+    .gap-4 {
+      gap: 16px;
+    }
+    /* "or" টেক্সট সেন্টারে */
+    .or-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    /* মোবাইল রেসপন্সিভনেস */
+    @media (max-width: 600px) {
+      .grid-cols-2 {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1 class="text-3xl font-semibold text-gray-900">Create an account</h1>
+    <br>
+<p>We are not directly related with any 3rd party authentication company. We can only get your personal details that they provides.
+<br>
+<br>
+<br>
+    <!-- Third Party Options -->
+    <div class="flex justify-between space-x-4">
+      <button type="button" class="social-btn google-btn">
+        <!-- Google Icon -->
+        <svg width="24" height="25" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M21.8 12.5a8.628 8.628 0 0 0-.212-2.05H12.2v3.723h5.51a4.913 4.913 0 0 1-2.044 3.255l-.019.125 2.969 2.307.205.02c1.889-1.75 2.978-4.325 2.978-7.38" fill="#4285F4"></path>
+          <path d="M12.2 22.31c2.7 0 4.966-.891 6.622-2.43l-3.156-2.452c-.844.59-1.978 1.003-3.466 1.003a6.006 6.006 0 0 1-3.516-1.162 6.039 6.039 0 0 1-2.173-3.007l-.117.01-3.087 2.397-.04.112a10.013 10.013 0 0 0 3.684 4.037A9.966 9.966 0 0 0 12.2 22.31" fill="#34A853"></path>
+          <path d="M6.51 14.26a6.196 6.196 0 0 1-.333-1.985 6.51 6.51 0 0 1 .322-1.984l-.006-.133L3.37 7.723l-.102.048a10.04 10.04 0 0 0 0 9.008l3.244-2.52Z" fill="#FBBC05"></path>
+          <path d="M12.2 6.123a5.532 5.532 0 0 1 3.866 1.493l2.823-2.764a9.59 9.59 0 0 0-6.69-2.61c-1.853 0-3.67.517-5.248 1.494a10.014 10.014 0 0 0-3.685 4.036l3.234 2.52a6.064 6.064 0 0 1 2.18-3.005 6.031 6.031 0 0 1 3.52-1.164Z" fill="#EB4335"></path>
+        </svg>
+      </button>
+
+      <button type="button" class="social-btn facebook-btn">
+        <!-- Facebook Icon -->
+        <svg width="24" height="25" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M22 12.276c0-5.541-4.477-10.034-10-10.034S2 6.735 2 12.276c0 5.008 3.657 9.16 8.438 9.912v-7.011h-2.54v-2.9h2.54v-2.211c0-2.515 1.492-3.904 3.777-3.904 1.093 0 2.238.196 2.238.196v2.469h-1.26c-1.243 0-1.63.773-1.63 1.568v1.881h2.773l-.443 2.9h-2.33v7.012c4.78-.753 8.437-4.904 8.437-9.912Z" fill="#fff"></path>
+          <path d="m15.893 15.175.443-2.9h-2.773v-1.882c0-.793.387-1.568 1.63-1.568h1.26V6.356s-1.144-.196-2.238-.196c-2.284 0-3.777 1.39-3.777 3.904v2.21h-2.54v2.901h2.54v7.012c1.035.162 2.09.162 3.124 0v-7.012h2.33Z" fill="#166DF0"></path>
+        </svg>
+      </button>
+
+      <button type="button" class="social-btn dribbble-btn">
+        <!-- Dribbble Icon -->
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+          <path fill-rule="evenodd" clip-rule="evenodd" d="M12 3C7.02922 3 3 7.02953 3 12C3 16.9705 7.02922 21 12 21C16.9705 21 21 16.9705 21 12C21 7.02953 16.9705 3 12 3ZM19.5924 11.9005C18.5633 11.6034 17.4758 11.4438 16.3514 11.4438C15.6722 11.4438 15.0063 11.5019 14.359 11.6137C14.1491 11.1126 13.9315 10.633 13.7117 10.1769C16.786 8.8619 17.9042 7.22712 17.9042 7.22712C18.9402 8.50676 19.5694 10.1304 19.5924 11.9005ZM17.037 6.31855C15.6968 5.12925 13.9323 4.40747 12.0001 4.40747C11.3916 4.40747 10.7996 4.47918 10.2324 4.61453C10.2324 4.61453 11.6195 6.22728 13.0807 8.93991C14.5947 8.34045 16.0131 7.49853 17.037 6.31855ZM8.71204 5.15417C8.71204 5.15417 10.0395 6.85725 11.4824 9.48141C8.00734 10.4804 4.57045 10.4273 4.57045 10.4273C5.06125 8.09716 6.62029 6.16062 8.71204 5.15417ZM4.40916 11.8015C4.40761 11.8677 4.40668 11.9338 4.40668 12.0002C4.40668 13.9563 5.14646 15.7395 6.36153 17.0859C7.79794 14.7063 10.0607 12.8819 12.7523 12.0095C12.5554 11.5765 12.3537 11.1571 12.1519 10.7532C10.1961 11.3731 7.65638 11.8189 4.40916 11.8015ZM12.0001 19.593C10.2694 19.593 8.67468 19.0141 7.39722 18.0396C8.67499 15.7858 10.7795 14.0619 13.2978 13.2805C14.0177 15.0606 14.6181 17.0148 14.904 19.0175C14.0096 19.3888 13.0286 19.593 12.0001 19.593ZM14.8722 12.9248C15.4639 14.5525 15.9541 16.3651 16.2176 18.3144C17.9089 17.1828 19.1203 15.3894 19.4807 13.3042C18.4941 12.9888 17.4426 12.819 16.3511 12.819C15.8492 12.819 15.3552 12.855 14.8722 12.9248Z" fill="white"></path>
+        </svg>
+      </button>
+
+      <button type="button" class="social-btn github-btn">
+        <!-- GitHub Icon -->
+        <svg width="25" height="24" viewBox="0 0 25 24" fill="none">
+          <path d="M12.7001 0.599976C6.07349 0.599976 0.699997 5.95069 0.699997 12.5514C0.699997 17.8319 4.13839 22.3118 8.9064 23.8921C9.50612 24.0027 9.7263 23.6328 9.7263 23.3172C9.7263 23.0322 9.71517 22.0907 9.71001 21.0921C6.37157 21.815 5.66712 19.6819 5.66712 19.6819C5.12124 18.3005 4.33472 17.9332 4.33472 17.9332C3.24595 17.1914 4.41679 17.2067 4.41679 17.2067C5.62181 17.291 6.25631 18.4383 6.25631 18.4383C7.3266 20.2654 9.06358 19.7372 9.74836 19.4318C9.85606 18.6593 10.1671 18.1321 10.5102 17.8337C7.84485 17.5314 5.04295 16.5067 5.04295 11.9272C5.04295 10.6224 5.51172 9.55623 6.27936 8.71927C6.15477 8.41825 5.74402 7.20268 6.39561 5.55645C6.39561 5.55645 7.4033 5.23525 9.69649 6.78152C10.6537 6.51672 11.6803 6.38392 12.7001 6.37937C13.7199 6.38392 14.7473 6.51672 15.7063 6.78152C17.9967 5.23525 19.003 5.55645 19.003 5.55645C19.6562 7.20268 19.2452 8.41825 19.1206 8.71927C19.8901 9.55623 20.3557 10.6224 20.3557 11.9272C20.3557 16.5176 17.5484 17.5283 14.8762 17.8242C15.3067 18.195 15.6902 18.9224 15.6902 20.0374C15.6902 21.6365 15.6763 22.9235 15.6763 23.3172C15.6763 23.6352 15.8923 24.0079 16.5006 23.8905C21.266 22.3084 24.7 17.8301 24.7 12.5514C24.7 5.95069 19.3273 0.599976 12.7001 0.599976Z" fill="white"></path>
+        </svg>
+      </button>
+    </div>
+
+    <div class="relative my-5">
+      <div class="absolute inset-0 flex items-center" aria-hidden="true">
+        <div class="w-full border-t border-gray-100"></div>
+      </div>
+      <div class="relative or-container">
+        <span class="bg-white px-2 text-xs text-gray-800">or</span>
+      </div>
+    </div>
+
+    <form>
+      <div class="space-y-4">
+        <div class="grid grid-cols-1 gap-3">
+          <!-- First & Last Name -->
+          <div class="grid grid-cols-2 gap-4">
+            <div class="relative">
+              <input type="text" placeholder="First name" name="firstName" class="w-full p-2 border rounded-md" />
+            </div>
+            <div class="relative">
+              <input type="text" placeholder="Last name" name="lastName" class="w-full p-2 border rounded-md" />
+            </div>
+          </div>
+
+          <!-- Email -->
+          <div class="relative">
+            <input type="email" placeholder="Email" name="email" class="w-full p-2 border rounded-md" />
+          </div>
+
+          <!-- Password -->
+          <div class="relative">
+            <input type="password" placeholder="Password" name="password" class="w-full p-2 border rounded-md" />
+          </div>
+              <p class="mt-1.5 mb-6 text-sm text-gray-900">
+      Already have an account?
+      <a href="/login?return_to=https%3A%2F%2Flottiefiles.com%2Fgetting-started">Login</a>
+    </p>
+<br>
+          <!-- Submit Button -->
+          <div>
+            <button type="submit" class="submit-btn w-full p-2 bg-blue-500 text-white rounded-md font-bold">Create an account</button>
+          </div>
+        </div>
+      </div>
+    </form>
+
+    <p class="mt-2 text-xs text-gray-900">
+      By continuing, you agree LottieFiles
+      <a href="https://studioasinc.github.io/trading/terms-and-conditions" target="_blank" rel="noreferrer">Terms of Service</a>
+      and
+      <a href="https://studioasinc.github.io/trading/privacy-policy" target="_blank" rel="noreferrer">Privacy Policy.</a>
+    </p>
+  </div>
+</body>
+<footer>
+  <div style="text-align: center; margin-left: 20px; margin-right: 10px;">
+    <h5 style="font-weight: normal; color: black;">
+      Copyright © 2025 <b>StudioAs Inc.</b> All rights reserved.<br><br>Designed with ❤️ by 
+      <span class="animated-gradient" style="font-weight: bold;">Ashik</span>.
+    </h5>
+  </div>
+</footer>
+
+<style>
+  .animated-gradient {
+    font-size: 1.5em; /* Adjust the size as needed */
+    background: linear-gradient(90deg, #4683F0, royalblue, #D1667D, #4683F0);
+    background-size: 300% 300%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: gradientAnimation 5s ease-in-out infinite;
+  }
+
+  @keyframes gradientAnimation {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+</style>
+</html>
+ 

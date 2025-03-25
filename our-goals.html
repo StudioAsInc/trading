@@ -358,13 +358,49 @@
         </div>
     </div>
     
-    <div class="footer-bottom"> -->
-    <p>&copy; <span id="year"></span> All Rights Reserved by 
-        <a href="https://studioasinc.github.io/web" class="studio-link">StudioAs Inc.</a><br><p>Made with ❤️ by</p> <a href="https://wa.me/8801792889067" class="studio-link">Ashik Ahmad</a></a>
+    <div class="footer-bottom">
+    <p>&copy; <span id="copyright-year">2025</span> All Rights Reserved by 
+        <span id="studio-gradient">StudioAs Inc.</span>
     </p>
+    <p>Made with ❤️ by <a href="https://wa.me/8801792889067" class="studio-link">Ashik Ahmad</a></p>
 </div>
 
     <style>
+#studio-gradient {
+        background: linear-gradient(
+            90deg, 
+            #4683F0, 
+            #6A5ACD, 
+            #D1667D, 
+            #FFA630,
+            #4683F0
+        );
+        background-size: 300% 300%;
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+        animation: studioGradientAnimation 8s ease infinite;
+        font-weight: 600;
+        display: inline;
+    }
+    
+    @keyframes studioGradientAnimation {
+        0% { background-position: 0% 50%; }
+        50% { background-position: 100% 50%; }
+        100% { background-position: 0% 50%; }
+    }
+    
+    .studio-link {
+        color: #4169E1;
+        text-decoration: none;
+        font-weight: 500;
+        transition: all 0.3s ease;
+    }
+    
+    .studio-link:hover {
+        text-decoration: underline;
+        color: #2A4EC7;
+    }
      .studio-link {
         color: #4169E1; /* Royal Blue */
         text-decoration: underline;
